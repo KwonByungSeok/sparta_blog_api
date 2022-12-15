@@ -9,7 +9,7 @@ router.get("/:postId", async (req, res) => {
   try {
     const { postId } = req.params;
     // find() -> 모든 데이터 가져오기
-    const comments = await Comment.find({ postId: postId });
+    const comments = await Comment.find({ postId: postId }).sort({ "_id": -1 });
     res.json(comments);
   } catch (err) {
     res.json({ message: err });

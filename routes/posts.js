@@ -7,7 +7,7 @@ const Post = require("../schemas/Post");
 router.get("/", async (req, res) => {
   try {
     // find() -> 모든 데이터 가져오기
-    const posts = await Post.find();
+    const posts = await Post.find().sort({ "_id": -1 });
     res.json(posts);
   } catch (err) {
     res.json({ message: err });
